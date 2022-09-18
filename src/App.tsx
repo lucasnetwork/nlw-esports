@@ -13,7 +13,7 @@ function App() {
         está aqui.
       </h1>
 
-      <div className="grid grid-cols-6 gap-6">
+      <div className="grid grid-cols-6 gap-6 mt-20">
         <a href="" className="relative rounded-lg overflow-hidden">
           <img src="/game-1.png" />
           <div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 right-0 left-0">
