@@ -1,4 +1,4 @@
-import {Image, View} from 'react-native'
+import {Image, View,FlatList} from 'react-native'
 import {styles} from './styles'
 import logoImg from '../../assets/logo.png'
 import { Heading } from '../../components/Heading'
@@ -11,15 +11,22 @@ export function Home(){
             <Image source={logoImg} style={styles.logo}/>
 
             <Heading title="Encontre seu Duo!" subtitle='Selecione o game que deseja jogar...'/>
-
-           {GAMES.map(game =>(
-             <GameCard key={game.id} data={{
-                ads:game.ads,
-                name:game.name,
-                cover:game.cover,
-                id:game.id
-            }}/>
-           ))}
+        <FlatList
+        data={GAMES}
+        keyExtractor={data => data.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.contentList}
+        renderItem={({item})=>(
+            <GameCard key={item.id} data={{
+                ads:item.ads,
+                name:item.name,
+                cover:item.cover,
+                id:item.id
+            }}/>    
+        )}
+        />
+         
         </View>
 
 
